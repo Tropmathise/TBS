@@ -1,0 +1,223 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{float}
+\restylefloat{table}
+
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{ 
+	colorlinks=true, 
+	linkcolor=dark, 
+	filecolor=blue, 
+	citecolor = blue,       
+	urlcolor=cyan, 
+} 
+\usepackage{csquotes}
+
+
+\usepackage[
+backend=biber,
+style=authoryear,
+sorting=nty
+]{biblatex}
+\addbibresource{references.bib}
+
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[R]{\textit{page \thepage}}
+\fancyfoot[C]{}
+\fancyfoot[L]{\textit{Sadurni Thomas}}
+\fancyheadoffset[]{\textwidth}
+\fancyheadoffset[]{\textwidth}
+\renewcommand{\headrulewidth{0pt}}
+
+\geometry{hmargin=3cm,vmargin=3cm}
+
+\begin{document}
+	\begin{figure}[t]
+		\centering
+		\includegraphics[width=7cm]{tbs-rond-2018.png}
+	\end{figure}
+	
+	\title{\vspace{0,5cm} Master Thesis \\ \vspace{0,5cm} \textbf{How investors’ fear and uncertainty can be used to predict the future short-term movement of cryptocurrencies price?}  \\ \textit{Using sentiment and machine learning\\}}
+	
+	\author{SADURNI Thomas}
+	
+	\date{\vspace{4.5cm} Master of Science - Banking and International Finance\\
+		2021-2022 }
+	
+	\maketitle
+	
+	\newpage
+	
+	\begin{abstract}
+		Using the more sensitive crypto market investors, this study sheds further light on the relationship between volatility and sentiment. In a fearful market, investors likely have higher risk aversion.
+		
+		Since the birth of Bitcoin, there has been an enormous rise and interest in
+		the cryptocurrency, a decentralized digital asset developed by the blockchain
+		technology. This digital currency draws a lot of attention due to its volatility,
+		which provides the opportunity for digital trading with high return. The total
+		market capitalization of cryptocurrencies has increased from 1 billion dollars to
+		3 trillion dollars in the past decade, with the number still increasing.
+		On the other hand, the emergence of social media such as Twitter, Reddit
+		and Facebook also makes the latest news and social media posts about financial
+		markets widely accessible. Sentiment
+		on cryptocurrency social media content with negative emotions, e.g., fear and
+		sadness, neutral emotions, e.g., calm and not sure, or positive emotions, e.g.,
+		trust and happiness, can be used to predict cryptocurrency price fluctuations and further to assist the investment decision-making. This paper focuses on this trending theme, proposing a recurrent neural network with long short-term memory (LSTM) by utilizing the sentiment analysis of social media to predict the real time price movement of the digital currency.
+		
+		\cite{ancpp}
+		\cite{arcot}
+		\cite{acnst}
+		\cite{asmsa}
+		\cite{aatpa}
+		\cite{apoca}
+		\cite{acpum}
+		\cite{aobpu}
+		\cite{bas}
+		\cite{cpcra}
+		\cite{asmsa}
+		\cite{ctpfu}
+		\cite{caaic}
+		\cite{ctuml}
+		\cite{cpput}
+		\cite{dlabi}
+		\cite{dsic}
+		\cite{dlbcs}
+		\cite{fatcw}
+		\cite{ftpob}
+		\cite{dbrtt}
+		\cite{dnnfc}
+		\cite{disdc}
+		\cite{hamtt}
+		\cite{isits}
+		\cite{iomvo}
+		\cite{isaba}
+		\cite{isatc}
+		\cite{haaic}
+		\cite{gctis}
+		\cite{ibru}
+		\cite{ocaai}
+		\cite{pmpoc}
+		\cite{pepwm}
+		\cite{prooi}
+		\cite{nsitc}
+		\cite{nbnpd}
+		\cite{niosp}
+		\cite{ppodc}
+		\cite{stbmp}
+		\cite{sibit}
+		\cite{wmcsi}
+		\cite{tmpts}
+		\cite{usatp}
+		\cite{tsoaf}
+		\cite{tppop}
+		\cite{tiomn}
+		\cite{stpof}
+		\cite{baptp}
+	\end{abstract}
+	
+	\tableofcontents
+	\newpage
+	
+	\section{Introduction}
+	
+	The aim of this paper is to examine whether the price of cryptocurrencies can be predicted using investor sentiment and machine learning techniques. Before diving into the detailed explanations of this study, I need to briefly introduce the elements that we will see together in this paper. This introduction first details the sentiment of the traditional financial market, then explains what cryptocurrencies and blockchain are, and finally sheds light on the analysis of the cryptocurrency market, sentiment, and artificial intelligence.
+	
+	\subsection{Sentiment in the stock market}
+	
+	The financial markets are full of events referring to a tremendous change in prices : \textit{the Great Crash} of 1929, \textit{the Black Monday} crash of October 1987, \textit{the Dot.com} bubble of the 90\textit{s}, \textit{the subprime crisis} of 2007-2008 and \textit{COVID-19 pandemic crisis} in 2020. Some of these past events, which were not supposed to happen, created fear and uncertainty among investors around the world, causing the opposite effect of the trend and moved prices in a way unrelated to fundamentals. \cite{ntrif} stated that investors are subject to sentiment and that betting against sentimental investors is costly and risky. Sentiment changes lead to more noise trading, greater
+	mispricing, and excess volatility. Periods of extreme price increase followed by implosion, commonly known as “bubbles,” are often associated with legitimate inventions, technologies, or opportunities. Hence, some events mentioned above were periods of extraordinary investor sentiment, pushing prices \textit{"To the Moon"} (euphoria) to bottomless valuation (panic phase). As \cite{isits} put in their article, "the question is no longer if investor sentiment impacts prices, but therefore how to measure it and how to take it into account when predicting prices and returns". 
+	
+	Theory suggests two states. First, the stock price of newer, smaller, more volatile, unprofitable, non-dividend paying, distressed firms is likely to be more affected by changes in investor sentiment (\cite{isits}). Second, higher risk is associated with greater probability of higher return and lower risk with a greater probability of smaller return. Cryptocurrencies can be defined in the same way, thus, cryptocurrencies tend to be riskier and more affected by sentiment among investors.
+	
+	\subsection{Cryptocurrencies \& Blockchain}
+	
+	Cryptocurrencies are a subset of virtual currencies that use cryptography for security. They use a very complex algorithm that requires connected computers to conduct expensive operations in order to solve a mathematical problem. A cryptocurrency is a digital currency based on blockchain technology, which means that they are almost impossible to counterfeit and double spent. They are not issued by any centralized authorities, rendering them theoretically immune to government interference or manipulation. The word “cryptocurrency” is derived from the encryption techniques which are used to secure the network. Cryptocurrencies face criticism for several reasons, including their use for illegal activities, exchange rate volatility, and vulnerabilities of the infrastructure underlying them. However, they also have been praised for their portability, divisibility, inflation resistance, and transparency in a digitally trusted environment. Today, there are thousands of alternate cryptocurrencies as known as altcoins with various functions and specifications like Ethereum, Solana, Avalanche or Polkadot. Some of these are clones or forks of Bitcoin, while others are new currencies that were built from scratch. Balances of crypto asset are kept using public and private "keys" which are long strings of numbers and letters linked through the mathematical encryption algorithm that creates them. The public key (comparable to a bank account number) serves as the address published to the world and to which others may send tokens.
+	The private key (comparable to an ATM PIN) is meant to be a guarded secret and only used to authorize token transmissions. People are using cryptocurrencies for a new form of decentralized economy, because it is cheap, online and anonymous. They are out of any government control, unregulated and highly volatile as they are largely based on public perception fuelled by news messages and posts on social media. Cryptocurrency has been widely used for purchasing products and services, as well as exchanging legal currencies with coins, but also for new financial models such as Decentralized Finance (DeFi). Given the significant value of these currencies, some people see value in them through use as actual currencies, while others view them as investment opportunities. \\
+	
+	Bitcoin, introduced by Satoshi \cite{baptp}, is the first decentralized cryptocurrency that relies heavily on the field of cryptography for hashing and signing transactions and remains the most popular and valuable today. The paper outlines a digital peer-to-peer payment system where transactions are recorded and verified on a chain of blocks, the blockchain, through a proof-of-work mechanism. Proof-of-work (PoW) is needed by the blockchain to secure the distributed ledger against any tampering attempts. This is achieved through solving a computationally-intensive cryptographic problem that is hard to solve but easy to verify. The nodes compete to find a nonce that results in a block hash. The winner node adds a block of transactions to the blockchain and receives a block reward set by the protocol in addition to transaction fees from senders. The block reward was initially set to 50 BTC, and it halves after every 210,000 blocks added to the chain. This halving process happens nearly every four years. The block reward, at the time of writing this paper, is 6.25 BTC. This process is called mining new Bitcoin among the 21 million available. On October 5, 2009, New Liberty Standard established the first exchange rates of Bitcoin for \$0.00076 per token. The highest traded price at the moment is 69 thousands dollars. \\
+	
+	The popularity of cryptocurrencies has experienced tremendous growth in 2017 and 2021 due to several consecutive months of exponential growth of their market capitalization, which peaks at 3 trillion dollars in November 2021 overpassing the most substantial historical bubbles over the last years. This growth and interest were primarily caused by news stories which reported the unprecedented returns of cryptocurrencies, that subsequently attracted a type of gold rush. By now, the market of cryptocurrencies has become one of the largest unregulated markets in the world totaling, as of December 2021, more than fifteen thousand assets (according to CoinMarketCap\footnote{\href{https://coinmarketcap.com/}{https://coinmarketcap.com/}}). Cryptocurrencies can be bought on different centralized exchanges (Binance\footnote{\href{https://www.binance.com/en}{https://www.binance.com/en}}, Coinbase\footnote{\href{https://www.coinbase.com/}{https://www.coinbase.com/}}, Kraken\footnote{\href{https://www.kraken.com/}{https://www.kraken.com/}} etc.). Their prices are mostly idiosyncratic, as they are mainly driven by behavioral factors and are uncorrelated with the major classes of financial assets. Consequently, many hedge funds and asset managers began to include cryptocurrencies in their portfolios, while the academic community spent considerable efforts in researching cryptocurrency trading, with the use of machine learning (ML) algorithms and sentiment analysis.
+	
+	\subsection{Sentiment \& the crypto market}
+	
+	The price of stocks and cryptocurrencies can be affected by many factors : trends on social media, forums, search engines (\cite{aobpu}), tweets of celebrities (\cite{dbrtt}) blockchain data (\cite{pepwm}), macroeconomic news (\cite{tiomn}),  Forex (\cite{nsitc}), economic policy uncertainty, or S\&P500 and the price of Gold \cite{aobpu}. Furthermore, many debates took place to consider whether Bitcoin and cryptocurrencies can be classified as financial instruments or a medium of exchange, whether they are a financial bubble, or simply a digital asset. Accordingly, there is no consensus on which factor really drives prices. Simultaneously, return predictability has always been the key aspect of the financial literature and revolves around two theories. According to the classical financial theory, markets are efficient (i.e. all the information is included in the current price). Hence, can financial markets be predicted ? According to the Efficient Market Hypothesis introduced by \cite{tbosm}, prices are largely driven by news rather than present and past prices. Furthermore, the behavioral finance theory asserts that a non-fundamental factor referred to as investor sentiment can also influence future returns. For this reason, cryptocurrencies prices mainly depend on opinions constructed through social media, which is a large available public sentiment data. These data can be used to predict future human behavior to build trading strategies.
+	
+	\subsection{Cryptocurrencies \& machine learning}
+	
+	Bitcoin and Ethereum blockchains sizes, the two mains crypto assets, are more than 500 GB as of the writing of this paper (December 2021) and a cumulated of daily volume at a peak of 150 billions in 24 hours with millions of trades. The amount of news articles has also been increasing tremendously. Regarding this huge amount of data related to Bitcoin and altcoins (\textit{alt} for alternative), there is a clear need for automated tools to process and analyze them. Artificial Intelligence techniques, also known as AI, can learn from this massive data and predict patterns for trading strategies. The success of machine learning techniques to stock market prediction suggests that it could also be efficient for cryptocurrencies prices. From the reviewed papers in this domain, that I am going to explain more in the following section, machine learning techniques that learn from historical data of prices are used to predict price and trend, but also volatility prediction, portfolio construction, and even fraud detection (\cite{ibru}). Neural networks (NNs), support vector machines (SVMs) and random forests (RFs) have been the most widely used techniques. Additionally, ML techniques allow natural language processing (NLP) for investor sentiment analysis using social media data like Twitter\footnote{\href{https://twitter.com}{https://twitter.com}}, Reddit\footnote{\href{https://www.reddit.com/}{https://www.reddit.com/}}, StockTwits\footnote{\href{https://stocktwits.com/}{https://stocktwits.com/}}, or other specific blockchain forums like BitcoinTalk\footnote{\href{https://bitcointalk.org/}{https://bitcointalk.org/}}. Sentiment analysis, or opinion mining, is an active field of study in natural language processing that analyses people’s opinions, sentiments, attitudes, and emotions via the computational treatment of subjectivity in text. Not only do social media provide live updates on cryptocurrencies, they are also a rich source of emotional intelligence, as investors frequently express their sentiment. Every day, more than 500 millions tweets are published on Twitter. Modern deep learning-based methods are known to constantly improve their performance as the amount of training data increases, unlike traditional learning approaches. Recurrent neural networks (RNNs) are quite effective for prediction tasks because they have "memory". They can read inputs and remember some information through the hidden layer activations. This allows to learn information from the past to be more effective on later inputs. The RNN most used for market prediction is Long-Short Term Memory (LTSM). Deep LSTM network architecture captures long-term dependencies efficiently. It essentially balances information from older and newer contexts through employing the memory state: hence the name "long short-term memory". This is the one that I am going to test in this study.
+	
+	\subsection{Aim of the study}
+	
+	This paper focus on different online investor sentiment proxies. The first is the Crypto Fear and Greed\footnote{\href{https://alternative.me/crypto/fear-and-greed-index/}{https://alternative.me/crypto/fear-and-greed-index/}}, which analyzes emotions and sentiments from different sources and groups them into one simple number. The second is the data of CryptoPick\footnote{\href{https://cryptopick.net/}{https://cryptopick.net/}}, a play-to-earn game where players can predict on different timeframes the trend of cryptocurrencies. Several empirical studies used Twitter and Google Trend as proxies for sentiment analysis, analyzing each tweet and classifying them into a positive, neutral or negative sentiment. \cite{tppop} found that Twitter sentiment can be used to predict the price returns of Bitcoin, Bitcoin Cash and Litecoin, the same results were found with the study of \cite{prooi}. Motivated with these studies, I suppose that my indicators can predict cryptocurrencies returns. I entertain the following variables: the S&P 500 index capturing the performance of financial markets, the price of gold, Google Search as a variable that quantifies the entries in the Google engine associated to Bitcoin, in particular, and cryptocurrencies, in general, the bets of CryptoPick players and a fear and uncertainty index by Crypto Fear and Greed. Hence, the challenge of this paper is to try to : first, see the effect of different factors on prices with a regression, second predict the price of cryptocurrencies using sentiment and modern machine learning techniques. I find that \textcolor{yellow}{sentiment predict return reversals : an increase in ... correspond to a ... in ... }
+	
+	The rest of the paper is organized as follows. Section 2 presents a literature review of the previous studies. Section 3 shows the data that I have used for this paper. Section 4 contains the results. Section 5 concludes. 
+	
+	\section{Literature Review}
+	\subsection{Theoretical effects of investor sentiment}
+	
+	In the many behavioral models, investors are of two types : rational arbitrageurs who are sentiment-free and irrational traders prone to exogenous sentiment. These two types of investor compete in the market and define prices and returns. As a result, prices are not at their fundamentals values and move according to investor sentiment : the higher the sentiment, the higher the demand for more speculative securities and the higher the expected returns. Hence, for \citeauthor{isits} in their two studies (\cite{isatc} and \cite{isits}), the stock price of a firm with long historical data, long earning history, stable dividend is much less subjective and tend to be less sensitive to sentiment compared to a young, unprofitable but potentially extremely profitable firm. They conclude by saying that "The stocks most sensitive to investor sentiment will be those of companies that are younger, smaller, more volatile, unprofitable, non–dividend paying, distressed, or with extreme growth potential. Conversely, bond-like stocks will be less driven by sentiment." That is, investors with a low propensity to speculate may demand profitable, dividend-paying stocks not because profitability and dividends are correlated with some unobservable firm property that defines safety to the investor, but precisely because the main characteristics “profitability” and “dividends” are essentially taken to define safety. \\\\
+	Furthermore, in financial markets, prices reflect all available information and are not predictable in order to earn abnormal returns. The degree of efficiency of market was first introduced by \cite{ecmar} which defines three-level of market efficiency. First, in the weak form of efficient markets, prices reflect all information about past prices. Second, the prices in the semi-strong market efficiency are formed with all publicly available information. Third, in the strong form of efficient markets, prices additionally reflect all private information. Major financial markets are generally agreed to be semi-strongly efficient. Similarly, \cite{amfea} formulates the adaptive market efficiency where markets may be temporarily inefficient, and market prices are affected by investors' cognitive biases, i.e : sentiment might be taken into account. 
+	
+	\subsection{Investor sentiment in equity market}
+	
+	A number of studies have shown that sentiment has an impact on judgment : investors who are in a good mood tend to make more optimistic decisions (\cite{matuo}). Many examples can be taken in the field of finance. For example, \cite{ssasr} find that sports results are related with stock markets, i.e a country's win in sports is related with a positive stock market reaction and vice versa. \cite{isisa} report that share prices of winning British soccer clubs overreact to information. \cite{gdssr} found that weather conditions are positively related with stock market returns. Aviation disasters negatively influence people's sentiment, and negative stock market returns are experienced shortly after, even for companies not affected by the event (\cite{saspt}). They concluded that irrational investors trade not according to fundamentals, but rather on their emotions and moods and can influence prices, leading to its deviation from the fundamental value. \\
+	
+	Overall, sentiment influences not only the judgment of favorable future prospects, but also the assessment of risk. Hence, happy investors not only are positive on expected stock returns, but also believe that the risks involved are relatively low.\\
+	
+	Additionally, in their study on the cross-section of stock returns, \cite{isatc} highlight that when sentiment is estimated to be high, stocks that are attractive to optimists and speculators and at the same time unattractive to arbitrageurs—younger stocks, small stocks, unprofitable stocks, non-dividend paying stocks, high volatility stocks, extreme growth stocks, and distressed stocks—tend to earn relatively low subsequent returns using a "top-down" approach. In their second study, \cite{isits} show that it is possible to measure investor sentiment. They use six proxies : trading volume, dividend premium, closed-end fund, the first-day returns on IPOs and the equity share in new issues and found that stocks that are difficult to arbitrage or to value are most affected by sentiment, and that sentiment affects the cost of capital. Hence, when sentiment is low, the average future returns of speculative stocks exceed those of bond-like stocks. When sentiment is high, the average future returns of speculative stocks are on average lower than the returns of bond-like stocks. \\\\
+	Similarly, \cite{tsoaf} find that the sentiment impacts the stocks that are difficult to arbitrage using a Financial and Economic Attitudes Revealed by Search (FEARS) index and show that it can predict short-term return reversals and temporary increases in volatility. In particular, the FEARS index is correlated with low returns today but predicts high returns tomorrow, a reversal pattern that is consistent with sentiment induced temporary mispricing. The same results using FEARS can be found in the study of \cite{cpcra}, indicating that a higher crisis sentiment by investors increases cryptocurrencies’ price crash risk. They add in their conclusion that cryptocurrencies "are not fundamental-driven". Thus, in the absence of fundamentals, the evidence that investors’ attention to crisis-related keywords is able to affect the cryptocurrency market can have tremendous value in shaping the trading strategies for both the newer and established cryptocurrencies. \\
+	
+	\cite{gctis} developed (they counted the positive and negative sentiment words in a famous Wall Street Journal column. They used a prebuilt classified Harvard word dictionary to do so) a news media sentiment and found that media pessimism leads to downward pressure on the equity marketplace. They successfully predict the broader markets. This emphasizes the importance of sentiment and bias in investor decision-making and asset pricing. As far as my knowledge is concerned, they were the first one to use sentiment to analyze market returns. \\
+	
+	\cite{wialn} were the first to describe the potential of using a domain-specific dictionary. They proposed a finance-oriented lexicon and found significant relationships between the tone of the report and the file date returns, trading volume, and volatility. 
+	Many researches have used Twitter sentiment to try to predict stock returns. In their paper, \cite{tmpts} show that changes in the public mood state induce a change in stock prices. Using Facebook, \cite{isaba} find empirical evidence of sentiment being positively related with bidder announcement abnormal returns. However, the results of \cite{niosp} in the Hong-Kong market show that financial news do not improve prediction accuracy, which shines that not all market can be predicted thanks to news and sentiment.
+	
+	\subsection{Investor sentiment in the crypto market}
+	
+	Several findings in the financial literature indicate that Bitcoin may constitute a new decoupled asset class (\cite{ocaai}) and search the efficiency form of the cryptocurrency market. It is shown that the market becomes increasingly efficient over time. \\\\
+	Using data on monetary policy changes, \cite{sseob} find that Bitcoin market does not react to such events but become increasingly efficient, highlighting the absence of any kind of control on Bitcoin. Summarizing, there is mixed evidence among scholars regarding the efficiency of the Bitcoin market. However, most researchers find that the Bitcoin market has become more efficient over the years. An increasing degree of market efficiency seems normal, as the Bitcoin market has become increasingly competitive. But investor are subject to overreaction. \cite{usatp} reveal that after the publication of an expert news story, the price first goes in the direction of the sentiment, but the market overreacts a little. The results suggest the Bitcoin price to satisfy a semi-strong form of market efficiency hypothesis, which is an indication of a mature market. However, in the study of \cite{nbnpd}, prices on any of the cryptocurrency exchanges are not as informative as those on the NYSE or NASDAQ. That is, cryptocurrency prices reflect more than just noise, but they have not yet reach the level of informativeness of stock prices (\cite{nbnpd}).\\
+	
+	The earlier studies investigated the impact of sentiment on cryptocurrency prices using various proxies such as Google Search trends (\cite{aobpu} and \cite{asmsa} realize that Google Trends data can accurately predict the direction of price changes, and price fluctuation depend heavily on web search analytics tools), Wikipedia searches, news sentiments (\cite{nsitc} suggest that Bitcoin does not react similarly to new arrivals compared to traditional currencies), Twitter sentiment (\cite{tppop}, \cite{cpput} and \cite{prooi} found that Twitter has predictive power for returns of cryptocurrencies) and cryptocurrency blog sentiment (\cite{haaic} and \cite{sibit} show respectively that investor sentiment can predict the price direction of cryptocurrencies, indicating direct impact of herding and anchoring biases and that volatility increases as the sentiment index decreases, and vice versa). Using StockTwist and Reddit, \cite{wmcsi} show that using a crypto-specific lexicon to take into account the specificity of the language used by investors on the crypto market is of an utmost importance. Positive and negative Emojis also play a very important role in capturing the exact sentiment of messages published on social media. They provide empirical evidence showing that, contrary to the stock market, investor sentiment in the crypto market is not reversed over the next few weeks. \\
+	Other sentiment index can be considered such as the study of \cite{dsic}, where the Sentix database is used and which show that sentiment has a positive impact on the Bitcoin returns, indicating that sentiment plays a significant role in determining prices. \cite{prooi}'s findings show that sentiment, particularly as proxied by the Happiness sentiment index, predicts significantly Bitcoin return as well as other major cryptocurrencies at the two extreme states of the market and for extreme levels of sentiment. Using the CRyptocurrency IndeX (CRIX) (\cite{sibit}) present that volatility increases as the sentiment index decreases, and vice versa. This is similar to the leverage effect in classical financial markets, where bad news have a stronger effect on volatility than good news, but here this effect is explicitly driven by the sentiment index. \cite{tiomn} observe that  news related to durable goods and unemployment significantly affect Bitcoin returns. \cite{nsitc} establish that only positive news on Bitcoin affect Bitcoin returns, while intraday negative Bitcoin news are ignored by investors. Finally, \cite{pepwm} resume in a table the studies that use different sentiment factors to see the correlation with Bitcoin price. \\
+	
+	One important aspect of cryptocurrencies is that they are influenced by worldwide personality. Elon Musk, CEO of Tesla and SpaceX, might be one of the most followed person on Twitter and often tweets on Cryptocurrency and especially Dogecoin. Prices are directly impacted after his tweet, with a gain of several dozens of percent. \cite{dbrtt} analyzes the relation between Bitcoin's returns, volatility, and trading volumes and the positive or negative sentiments expressed in tweets by the US President Donald J. Trump. He finds that the sentiment of Trump’s tweets reasonably predicts Bitcoin’s returns, volatility, and trading volumes. The more negative Trump’s sentiment, the higher returns. This can highlight the fact that investor in cryptocurrencies are not professionals but sentiment sensitive humans searching for profits and without experience. \\
+	
+	One may take into consideration that shocks from Bitcoin, the most dominant cryptocurrency, affect other cryptocurrencies' returns. \cite{dsic} show that optimistic sentiment toward Bitcoin influence the price movement in other cryptocurrencies and lead to an increasing of their prices. Hence, it is shown that there is information spillover from the dominance of Bitcoin. They also investigate the impact of equity market sentiment of cryptocurrency returns. The VIX, an index used a proxy for the fear in the equity market, is found to have a positive influence on the Bitcoin, Ethereum, and Litecoin returns. The results support that bearish sentiment and fear in the equity market seem to lead investors to invest in the cryptocurrency market as one of the alternative assets, resulting in an increase of prices. Investors are more attracted to Bitcoin during uncertain times as Bitcoin has the longest track record and the most secure network.\\
+	\cite{pdwvc} find significant return spillovers between Bitcoin prices and financial variables. Moreover, they suggest that a hedging portfolio that includes stocks, Gold, oil, and Bitcoin performs better than a portfolio without Bitcoin, emphasizing the interdependence between commodities and cryptocurrency. \cite{haaic} explore the relationship between the price dynamics of 10 cryptocurrencies and proxies for fear (VIX index), uncertainty (U.S. Equity Market Uncertainty index), investors’ sentiment toward cryptocurrencies (measured based on investors’ opinions expressed in a Bitcoin forum) and investor perceptions of bullishness/bearishness in the overall financial markets (measured by CBOE put-call ratio). They highlight that investor sentiment is a good predictor of the price direction of cryptocurrencies and that cryptocurrencies can be used as a hedge during times of uncertainty; but during times of fear, they do not act as a suitable safe haven against equities. The results indicate the presence of herding biases among investors of crypto assets and suggest that anchoring and recency biases, if present, are non-linear and environment-specific. A very interesting survey made by \cite{bas} find that expected returns of Bitcoin are low when sentiment measured by VIX is high, while expected returns are high when sentiment by VIX is low, supporting the general characterization in \cite{isits}. In the same line, \cite{fsuab} analyze the influence of fear sentiment on Bitcoin prices and show that an increase in coronavirus fear has led to negative returns and high trading volume. The authors conclude that during times of market distress (e.g., during the coronavirus pandemic), Bitcoin acts more like other financial assets do—it does not serve as a safe haven.
+	
+	\subsection{Machine learning to predict returns}
+	
+	Analyzing the literature review of Bitcoin price prediction, I find that \cite{mlfbp} and \cite{caaic} conduct a large review of machine learning articles before 2020. They examine the body of literature with regard to applied machine learning methods, return-predictive features, prediction horizons, and prediction types. The application of machine learning algorithms to the cryptocurrency market has been limited so far to the analysis of Bitcoin prices.\\
+	Machine learning techniques can use different data to try to predict prices. \cite{pepwm} use blockchain-based information to predict the price of Ethereum. Their key findings reveal that macroeconomy factors, Ethereum-specific Blockchain information (i.e., the uncle block, gas price, gas consumption, and gas limit), and the Blockchain in formation of other cryptocurrency play important roles in the prediction of Ethereum price.   \\
+	
+	More recently, \cite{stbmp} analyze the short term predictability (1 minutes) of the Bitcoin market on four different prediction horizons using sentiment data from Twitter, VIX, S&P500 and gold. Their models are able to predict the binary market movement with accuracies ranging from 50.9\% to 56.0\% whereby predictive accuracy tends to increase for longer forecast horizons. They also identify that especially recurrent neural networks are well-suited for this prediction task. \cite{ftpob} also successfully predict returns using the SDAE model. \\
+	\cite{acpum} use daily data for all cryptocurrencies available on CoinMarketCap during their sample period and show that trading strategies assisted by machine learning algorithm outperform standard benchmarks.  \cite{brab} used Bayesian neural network to predict the direction of Bitcoin, they reported yearly returns of 85\% from their model forecasts. Comparing different learning methods on the cryptocurrency index 30, \cite{aatpa} conclude that their models exhibit a very good performance, with an accuracy of 92.4\%. \\
+	
+	\cite{ppodc} proposed a model using trade indicators, machine learning and sentiment analysis and achieved an accuracy of 95\% ! Using also daily data from 2013 to 2019 and Twitter sentiment, \cite{dlabi} suggest that the incorporation of social media sentiment data significantly improves the performance of the proposed models. Once again, \cite{pcpbu} investigate if the relationships between online and social media factors and the prices of Bitcoin, Ethereum, Litecoin, and Monero depend on the market regime; they find that medium-term positive correlations strengthen significantly during bubble-like regimes, while short-term relationships appear to be caused by particular market events, such as hacks or security breaches. They use social media and epidemic modelling (Markov model) to forecast prices and suggest that their trading strategy outperform the buy-and-hold strategy. \cite{dlbcs} findings show that StockTwists messages are informative regarding returns and volatility predictability using recursive neural network, and can then be used to predict the fluctuations. Overall, the major studies reveal that machine learning outperform a buy-and-hold strategy. However, some studies like \cite{arcot} highlight ML and technical analysis are capable to successfully forecast future price movements and capture risk premiums, but they are not generally capable of earning “abnormal” returns.\\
+	
+	\cite{ancpp}'s results obtained from their models show that the
+	gated recurrent unit (GRU) performed better in prediction for all types of cryptocurrency than the long short-term memory (LSTM) and bidirectional LSTM (bi-LSTM) models. Long short-term memory (LTSM) neural network were used by also \cite{dlbcs}, \cite{dnnfc}, and \cite{lstmb}, combined with the sentiment of Chinese social media find a prediction of prices at an 87\% level. \cite{pmpoc} compare the utilization of neural networks (NN), support vector machines (SVM) and random forest (RF) while using elements from Twitter and market data as input features. The results show that it is possible to predict cryptocurrency markets using machine learning and sentiment analysis, where Twitter data by itself could be used to predict certain cryptocurrencies and that NN outperform the other models.\\
+	These studies were able to anticipate, to different degrees, the price fluctuations of Bitcoin, and revealed that best results for prediction were achieved by neural network based algorithms (LSTM-based prediction) and deep neural network based algorithms for classification models of price changes whether up or down. Finally, deep reinforcement learning was showed to beat the uniform buy-and-hold strategy (\cite{ctuml}) and conclude that prices appear to be driven by sentiment. \\
+	
+	\cite{caaic} did a large and very well explained review of Artificial Intelligence and techniques used in the financial literature before 2020 and reported all studies using statistical based models (Ordinary least squares, Logistic regression, Autoregressive integrated moving average), neural network based models (LSTM, DNN, ANN), tree-based models, probabilistic based models (Markov \cite{pcpbu}, Bayesian) etc. Finally, machine learning and sentiment can be used to predict price movement of cryptocurrencies. 
+	
+	
+	\subsection{Limitation of the current literature}
+	\section{Data and Methodology}
+	Cryptocurrency Price Prediction Using Tweet Volumes and Sentiment Analysis
+	
+	
+	\newpage
+	\printbibliography[heading=bibintoc]
+	
+\end{document}
